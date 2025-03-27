@@ -7,13 +7,14 @@
 
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
-import { ref } from "vue";
-
 const page = ref(1);
 
+const getPokemonList = async () => {
+  return await $fetch(`/api/getList?page=${page.value}`);
+};
+
 const { data } = useQuery({
-  queryKey: ["getList", page],
-  queryFn: () => $fetch(`/api/getList?page=${page.value}`),
+  queryKey: ["getPokemonList", page],
+  queryFn: getPokemonList,
 });
 </script>
-

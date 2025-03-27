@@ -6,18 +6,23 @@
 </template>
 
 <script setup lang="ts">
-import { useQuery } from '@tanstack/vue-query';
+import { useQuery } from "@tanstack/vue-query";
+import type { PokemonDetail } from "~/type";
 const route = useRoute();
 const id = computed(() => route.params.id as string);
 
-const fetchPokemonDetail = async () => {
-  return await $fetch<{ id: number; name: string; image: string }>(`/api/getDetail/${id.value}`);
+const getPokemonDetail = async () => {
+  return await $fetch<PokemonDetail>(`/api/getDetail/${id.value}`);
 };
 
-const { data: pokemon, isLoading, error } = useQuery({
-  queryKey: ['detail', id],
-  queryFn: fetchPokemonDetail,
+const {
+  data: pokemon,
+  isLoading,
+  error,
+} = useQuery({
+  queryKey: ["getPokemonDetail", id],
+  queryFn: getPokemonDetail,
   enabled: computed(() => !!id.value),
 });
-console.log(pokemon, isLoading, error)
+console.log(pokemon, isLoading, error);
 </script>
