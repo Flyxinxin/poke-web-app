@@ -2609,6 +2609,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/match-sorter-utils@npm:^8.19.4":
+  version: 8.19.4
+  resolution: "@tanstack/match-sorter-utils@npm:8.19.4"
+  dependencies:
+    remove-accents: "npm:0.5.0"
+  checksum: 10c0/935022e3d639f19472131d289f3e1202253ff34301717c337e9bac0eeae6a0bd56450ed8ae2f7eb7ac9dfefa7ceaa7d126d8c5441021968b4a9eabc3ac4f8ba1
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.69.0":
+  version: 5.69.0
+  resolution: "@tanstack/query-core@npm:5.69.0"
+  checksum: 10c0/8ad87046d1a8c18773de10e74d7fef2093cdbe9734e76460945048c00a219ae3d2421eab2b4d54340f3f491813f99ceef7d2849827d95490c8b67de1b87934ae
+  languageName: node
+  linkType: hard
+
 "@tanstack/table-core@npm:8.21.2":
   version: 8.21.2
   resolution: "@tanstack/table-core@npm:8.21.2"
@@ -2620,6 +2636,24 @@ __metadata:
   version: 3.13.5
   resolution: "@tanstack/virtual-core@npm:3.13.5"
   checksum: 10c0/870fb28e5972bb20c0d7e980a3cbe72f18c2a7aaa60c26d63b8cb27b2daeb9fea17f13361c5fac0854be7f357b33263cedf23a4fb2f82c6740434cad5572be3e
+  languageName: node
+  linkType: hard
+
+"@tanstack/vue-query@npm:^5.69.0":
+  version: 5.69.0
+  resolution: "@tanstack/vue-query@npm:5.69.0"
+  dependencies:
+    "@tanstack/match-sorter-utils": "npm:^8.19.4"
+    "@tanstack/query-core": "npm:5.69.0"
+    "@vue/devtools-api": "npm:^6.6.3"
+    vue-demi: "npm:^0.14.10"
+  peerDependencies:
+    "@vue/composition-api": ^1.1.2
+    vue: ^2.6.0 || ^3.3.0
+  peerDependenciesMeta:
+    "@vue/composition-api":
+      optional: true
+  checksum: 10c0/95669dce6f3eca2e3df373d1f2f7b111629f861e618da30ad8f7f6e904519a2ffc0a62f2d715347dde03bc34b68b828e194ff63c1e36172fc6cdc6ba2e2b0bd0
   languageName: node
   linkType: hard
 
@@ -3206,7 +3240,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/devtools-api@npm:^6.6.4":
+"@vue/devtools-api@npm:^6.6.3, @vue/devtools-api@npm:^6.6.4":
   version: 6.6.4
   resolution: "@vue/devtools-api@npm:6.6.4"
   checksum: 10c0/0a993ae23618166e1bee5a7c14cebd8312752b93c143cbdd48fb2d0f7ade070d0e6baf757cd920d4681fef8f9acf29515162160f38cc7410f9a684d2df21b6de
@@ -8465,6 +8499,7 @@ __metadata:
     "@nuxt/scripts": "npm:0.11.5"
     "@nuxt/test-utils": "npm:3.17.2"
     "@nuxt/ui": "npm:3.0.1"
+    "@tanstack/vue-query": "npm:^5.69.0"
     "@unhead/vue": "npm:^2.0.0-rc.8"
     eslint: "npm:^9.0.0"
     nuxt: "npm:^3.16.1"
@@ -9903,6 +9938,13 @@ __metadata:
     mdast-util-to-markdown: "npm:^2.0.0"
     unified: "npm:^11.0.0"
   checksum: 10c0/0cdb37ce1217578f6f847c7ec9f50cbab35df5b9e3903d543e74b405404e67c07defcb23cd260a567b41b769400f6de03c2c3d9cd6ae7a6707d5c8d89ead489f
+  languageName: node
+  linkType: hard
+
+"remove-accents@npm:0.5.0":
+  version: 0.5.0
+  resolution: "remove-accents@npm:0.5.0"
+  checksum: 10c0/a75321aa1b53d9abe82637115a492770bfe42bb38ed258be748bf6795871202bc8b4badff22013494a7029f5a241057ad8d3f72adf67884dbe15a9e37e87adc4
   languageName: node
   linkType: hard
 
@@ -11879,7 +11921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-demi@npm:>=0.13.0, vue-demi@npm:>=0.14.8":
+"vue-demi@npm:>=0.13.0, vue-demi@npm:>=0.14.8, vue-demi@npm:^0.14.10":
   version: 0.14.10
   resolution: "vue-demi@npm:0.14.10"
   peerDependencies:
