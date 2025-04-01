@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="title">Pokemon Familiy</h1>
 
-    <div v-if="data">
+    <template v-if="data">
       <div
         v-for="page in data.pages"
         :key="page.page"
@@ -14,23 +14,21 @@
           class="pokemon-item"
           @click="goToDetail(pokemon.id)"
         >
-          <img :src="pokemon.image" class="pokemon-image" >
+          <img :src="pokemon.image" class="pokemon-image" />
           <p class="pokemon-text">ID: {{ pokemon.id }}</p>
           <p class="pokemon-text">Name: {{ pokemon.name }}</p>
         </div>
       </div>
-    </div>
+    </template>
 
-    <div class="button-container">
-      <button
-        v-if="hasNextPage"
-        class="load-more-button"
-        :disabled="isFetchingNextPage"
-        @click="() => fetchNextPage()"
-      >
-        {{ isFetchingNextPage ? "Loading..." : "Load More" }}
-      </button>
-    </div>
+    <button
+      v-if="hasNextPage"
+      class="load-more-button"
+      :disabled="isFetchingNextPage"
+      @click="() => fetchNextPage()"
+    >
+      {{ isFetchingNextPage ? "Loading..." : "Load More" }}
+    </button>
   </div>
 </template>
 
@@ -39,14 +37,15 @@ import { useInfiniteQuery } from "@tanstack/vue-query";
 
 const router = useRouter();
 
-const getPokemonList = async ({ pageParam = 1 }) => {
+async function getPokemonList({ pageParam = 1 }) {
   try {
-    const response = await fetch(`/api/getList?page=${pageParam}`);
+    const response = await fetch(`/api/v1/pokemons?page=${pageParam}`);
     return response.json();
   } catch (error) {
     console.error("Error fetching Pokemon list:", error);
+    return null;
   }
-};
+}
 
 const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
   useInfiniteQuery({
@@ -60,9 +59,9 @@ const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
     },
   });
 
-const goToDetail = (id: number) => {
+function goToDetail(id: number) {
   router.push(`/pokemons/${id}`);
-};
+}
 </script>
 
 <style scoped>

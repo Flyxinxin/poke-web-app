@@ -1,9 +1,9 @@
 <template>
-  <div class="pokemon-details">
+  <div class="pokemon">
     <h1 class="pokemon-title">Pokemon Details</h1>
 
     <div v-if="pokemon">
-      <img :src="pokemon.image" class="pokemon-image">
+      <img :src="pokemon.image" class="pokemon-image" />
       <h2 class="pokemon-name">{{ pokemon.name }}</h2>
       <p class="pokemon-id">ID: {{ pokemon.id }}</p>
       <p class="pokemon-height">Height: {{ pokemon.height }}</p>
@@ -26,7 +26,7 @@ const router = useRouter();
 const id = ref(route.params.id as string);
 
 const getPokemonDetail = async () => {
-  return await $fetch<PokemonDetail>(`/api/getDetail/${id.value}`);
+  return await $fetch<PokemonDetail>(`/api/v1/pokemons/${id.value}`);
 };
 
 const {
@@ -39,9 +39,9 @@ const {
   enabled: computed(() => !!id.value),
 });
 
-const goBack = () => {
+function goBack() {
   router.back();
-};
+}
 </script>
 <style scoped>
 @import "../../styles/detail.css";
