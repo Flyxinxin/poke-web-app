@@ -1,4 +1,4 @@
-import { getPokemonList } from "../services/list.service";
+import { getPokemonList } from "../services/index.service";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);

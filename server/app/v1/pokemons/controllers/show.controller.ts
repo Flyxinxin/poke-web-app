@@ -1,4 +1,4 @@
-import { getPokemonDetail } from "../services/detail.service";
+import { getPokemonDetail } from "../services/show.service";
 
 export default defineEventHandler(async (event) => {
   const id = event.context.params?.id;
