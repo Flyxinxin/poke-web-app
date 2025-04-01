@@ -1,3 +1,3 @@
-import detailController from "~/server/app/v1/pokemons/controllers/show.controller";
+import showController from "~/server/app/v1/pokemons/controllers/show.controller";
 
-export default defineEventHandler(detailController);
+export default defineEventHandler(showController);
