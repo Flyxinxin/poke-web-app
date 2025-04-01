@@ -1,12 +1,14 @@
 import { getPokemonList } from "../services/index.service";
 
 export default defineEventHandler(async (event) => {
+  console.log("request", event)
+  
   const query = getQuery(event);
   const page = parseInt(query.page as string) || 1;
 
   try {
     const data = await getPokemonList(page);
-    console.log(data, "data");
+    console.log("data", data);
     return data;
   } catch (error) {
     console.error("Error fetching pokemon List data:", error);
