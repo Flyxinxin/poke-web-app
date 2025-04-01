@@ -46,5 +46,5 @@ function goBack() {
 }
 </script>
 <style scoped>
-@import "../../styles/detail.css";
+@import "../../styles/pokemons/detail.css";
 </style>

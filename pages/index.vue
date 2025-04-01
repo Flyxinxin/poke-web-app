@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <h1 class="title">Pokemon Familiy</h1>
-
+    <router-link to="/pokemons/favourites" class="favourites-link"
+      >Go to Favourites</router-link
+    >
     <template v-if="data">
       <div
         v-for="page in data.pages"
@@ -67,5 +69,5 @@ function goToDetail(id: number) {
 </script>
 
 <style scoped>
-@import "../styles/index.css";
+@import "../styles//pokemons/index.css";
 </style>

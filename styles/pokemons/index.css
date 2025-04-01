@@ -11,6 +11,10 @@
   font-weight: bold;
 }
 
+.favourites-link {
+  text-decoration: none;
+}
+
 .pokemon-list-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
