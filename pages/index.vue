@@ -17,6 +17,7 @@
           <img :src="pokemon.image" class="pokemon-image" />
           <p class="pokemon-text">ID: {{ pokemon.id }}</p>
           <p class="pokemon-text">Name: {{ pokemon.name }}</p>
+          <FavouriteButton :pokemon="pokemon" />
         </div>
       </div>
     </template>
@@ -34,6 +35,7 @@
 
 <script setup lang="ts">
 import { useInfiniteQuery } from "@tanstack/vue-query";
+import FavouriteButton from "~/components/pokemons/favourite-button.vue";
 
 const router = useRouter();
 

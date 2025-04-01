@@ -8,6 +8,7 @@
       <p class="pokemon-id">ID: {{ pokemon.id }}</p>
       <p class="pokemon-height">Height: {{ pokemon.height }}</p>
       <p class="pokemon-weight">Weight: {{ pokemon.weight }}</p>
+      <FavouriteButton :pokemon="pokemon" />
     </div>
 
     <div v-if="isLoading" class="loading">Loading...</div>
@@ -20,6 +21,7 @@
 <script setup lang="ts">
 import { useQuery } from "@tanstack/vue-query";
 import type { PokemonDetail } from "~/type";
+import FavouriteButton from "~/components/pokemons/favourite-button.vue";
 
 const route = useRoute();
 const router = useRouter();
