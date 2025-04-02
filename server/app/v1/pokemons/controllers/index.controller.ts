@@ -6,7 +6,7 @@ import { transformPokemonList } from '../mappers/pokemons.mappers'
 
 export default defineEventHandler(async event => {
   const query = getQuery(event)
-  const page = parseInt(query.page as string) || 1
+  const page = Number(query.page) || 1
   const pageSize = 20
   const offset = (page - 1) * pageSize
 
@@ -14,7 +14,6 @@ export default defineEventHandler(async event => {
     const data = await getPokemonList({ limit: pageSize, offset })
     return transformPokemonList(data, { page, pageSize })
   } catch (error) {
-    console.error('Error fetching Pokemon list data:', error)
-    return { error: 'Failed to fetch Pokemon list data' }
+    return { error }
   }
 })

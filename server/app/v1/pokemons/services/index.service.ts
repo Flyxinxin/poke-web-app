@@ -11,8 +11,7 @@ export const getPokemonList = async ({
   try {
     const response = await $fetch<PokemonApiResponse>(url)
     return response
-  } catch (error) {
-    console.error('Error fetching Pokemon list data:', error)
+  } catch {
     throw new Error('Failed to fetch Pokemon list data')
   }
 }

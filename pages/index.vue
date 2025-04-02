@@ -45,8 +45,7 @@ async function getPokemonList({ pageParam = 1 }) {
   try {
     const response = await fetch(`/api/v1/pokemons?page=${pageParam}`)
     return response.json()
-  } catch (error) {
-    console.error('Error fetching Pokemon list:', error)
+  } catch {
     return null
   }
 }
@@ -56,8 +55,7 @@ const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
     queryKey: ['getPokemonList'],
     queryFn: getPokemonList,
     initialPageParam: 1,
-    getNextPageParam: (lastPage, pages) => {
-      console.log(lastPage, pages, 'pages')
+    getNextPageParam: lastPage => {
       if (lastPage.page >= lastPage.totalPages) return undefined
       return lastPage.page + 1
     },

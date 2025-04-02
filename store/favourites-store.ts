@@ -13,7 +13,6 @@ export const useFavouriteStore = defineStore('favourite', {
       } else {
         this.favourites.splice(index, 1)
       }
-      console.log('favourites:', this.favourites)
     },
   },
 })

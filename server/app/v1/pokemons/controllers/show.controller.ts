@@ -12,6 +12,6 @@ export default defineEventHandler(async event => {
     const data = await getPokemonDetail(id)
     return transformPokemonDetail(data)
   } catch (error) {
-    return { error: 'Failed to fetch Pokemon detail data' }
+    return { error }
   }
 })

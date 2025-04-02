@@ -6,8 +6,7 @@ export const getPokemonDetail = async (id: string) => {
   try {
     const response = await $fetch<DetailApiResponse>(url)
     return response
-  } catch (error) {
-    console.error('Error fetching Pokemon detail data:', error)
+  } catch {
     throw new Error('Failed to fetch Pokemon detail data')
   }
 }
