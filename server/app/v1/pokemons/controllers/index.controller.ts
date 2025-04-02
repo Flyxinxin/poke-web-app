@@ -1,17 +1,20 @@
 import { getPokemonList } from "../services/index.service";
+import { transformPokemonList } from "../mappers/pokemons.mappers";
+
+// The controller to receives the request
+// And calls the service and processes the data to the View.
 
 export default defineEventHandler(async (event) => {
-  console.log("request", event)
-  
   const query = getQuery(event);
   const page = parseInt(query.page as string) || 1;
+  const pageSize = 20;
+  const offset = (page - 1) * pageSize;
 
   try {
-    const data = await getPokemonList(page);
-    console.log("data", data);
-    return data;
+    const data = await getPokemonList({ limit: pageSize, offset });
+    return transformPokemonList(data, { page, pageSize });
   } catch (error) {
-    console.error("Error fetching pokemon List data:", error);
-    return { error: "Failed to fetch pokemon List data33" };
+    console.error("Error fetching Pokemon list data:", error);
+    return { error: "Failed to fetch Pokemon list data" };
   }
 });

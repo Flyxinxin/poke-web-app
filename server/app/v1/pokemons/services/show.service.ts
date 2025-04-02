@@ -1,4 +1,3 @@
-import { transformPokemonDetail } from "../mappers/pokemons.mappers";
 import type { DetailApiResponse } from "~/type";
 
 export const getPokemonDetail = async (id: string) => {
@@ -6,7 +5,7 @@ export const getPokemonDetail = async (id: string) => {
 
   try {
     const response = await $fetch<DetailApiResponse>(url);
-    return transformPokemonDetail(response);
+    return response;
   } catch (error) {
     console.error("Error fetching Pokemon detail data:", error);
     throw new Error("Failed to fetch Pokemon detail data");

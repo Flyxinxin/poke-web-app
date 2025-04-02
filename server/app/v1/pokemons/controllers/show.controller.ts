@@ -1,17 +1,17 @@
+import { transformPokemonDetail } from "../mappers/pokemons.mappers";
 import { getPokemonDetail } from "../services/show.service";
 
 export default defineEventHandler(async (event) => {
   const id = event.context.params?.id;
 
   if (!id) {
-    return { success: false, error: "Pokemon ID is required" };
+    return { error: "Pokemon ID is required" };
   }
 
   try {
     const data = await getPokemonDetail(id);
-    return data;
+    return transformPokemonDetail(data);
   } catch (error) {
-    console.error("Error fetching Pokemon detail data:", error);
     return { error: "Failed to fetch Pokemon detail data" };
   }
 });

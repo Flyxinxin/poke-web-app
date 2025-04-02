@@ -1,6 +1,5 @@
 import type {
   DetailApiResponse,
-  PokemonItem,
   PokemonDetail,
   PokemonApiResponse,
   TransformedPokemonList,
@@ -8,8 +7,7 @@ import type {
 
 export const transformPokemonList = (
   res: PokemonApiResponse,
-  page: number,
-  pageSize: number
+  { page, pageSize }: { page: number; pageSize: number }
 ): TransformedPokemonList => {
   const pokemons = res.results.map((pokemon) => {
     const id = parseInt(pokemon.url.split("/").slice(-2, -1)[0]);
@@ -19,7 +17,6 @@ export const transformPokemonList = (
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
     };
   });
-
   return {
     count: res.count,
     page,
