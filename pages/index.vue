@@ -30,44 +30,44 @@
       :disabled="isFetchingNextPage"
       @click="() => fetchNextPage()"
     >
-      {{ isFetchingNextPage ? "Loading..." : "Load More" }}
+      {{ isFetchingNextPage ? 'Loading...' : 'Load More' }}
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useInfiniteQuery } from "@tanstack/vue-query";
-import FavouriteButton from "~/components/pokemons/favourite-button.vue";
+import { useInfiniteQuery } from '@tanstack/vue-query'
+import FavouriteButton from '~/components/pokemons/favourite-button.vue'
 
-const router = useRouter();
+const router = useRouter()
 
 async function getPokemonList({ pageParam = 1 }) {
   try {
-    const response = await fetch(`/api/v1/pokemons?page=${pageParam}`);
-    return response.json();
+    const response = await fetch(`/api/v1/pokemons?page=${pageParam}`)
+    return response.json()
   } catch (error) {
-    console.error("Error fetching Pokemon list:", error);
-    return null;
+    console.error('Error fetching Pokemon list:', error)
+    return null
   }
 }
 
 const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
   useInfiniteQuery({
-    queryKey: ["getPokemonList"],
+    queryKey: ['getPokemonList'],
     queryFn: getPokemonList,
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
-      console.log(lastPage, pages, "pages");
-      if (lastPage.page >= lastPage.totalPages) return undefined;
-      return lastPage.page + 1;
+      console.log(lastPage, pages, 'pages')
+      if (lastPage.page >= lastPage.totalPages) return undefined
+      return lastPage.page + 1
     },
-  });
+  })
 
 function goToDetail(id: number) {
-  router.push(`/pokemons/${id}`);
+  router.push(`/pokemons/${id}`)
 }
 </script>
 
 <style scoped>
-@import "../styles//pokemons/index.css";
+@import '../styles//pokemons/index.css';
 </style>

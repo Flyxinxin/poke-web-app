@@ -19,32 +19,32 @@
 </template>
 
 <script setup lang="ts">
-import { useQuery } from "@tanstack/vue-query";
-import type { PokemonDetail } from "~/type";
-import FavouriteButton from "~/components/pokemons/favourite-button.vue";
+import { useQuery } from '@tanstack/vue-query'
+import type { PokemonDetail } from '~/type'
+import FavouriteButton from '~/components/pokemons/favourite-button.vue'
 
-const route = useRoute();
-const router = useRouter();
-const id = ref(route.params.id as string);
+const route = useRoute()
+const router = useRouter()
+const id = ref(route.params.id as string)
 
 const getPokemonDetail = async () => {
-  return await $fetch<PokemonDetail>(`/api/v1/pokemons/${id.value}`);
-};
+  return await $fetch<PokemonDetail>(`/api/v1/pokemons/${id.value}`)
+}
 
 const {
   data: pokemon,
   isLoading,
   error,
 } = useQuery({
-  queryKey: ["getPokemonDetail", id],
+  queryKey: ['getPokemonDetail', id],
   queryFn: getPokemonDetail,
   enabled: computed(() => !!id.value),
-});
+})
 
 function goBack() {
-  router.back();
+  router.back()
 }
 </script>
 <style scoped>
-@import "../../styles/pokemons/detail.css";
+@import '../../styles/pokemons/detail.css';
 </style>

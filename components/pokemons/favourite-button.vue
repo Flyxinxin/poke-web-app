@@ -6,22 +6,22 @@
 </template>
 
 <script setup lang="ts">
-import { useFavouriteStore } from "~/store/favourites-store";
-import type { PokemonItem } from "~/type";
+import { useFavouriteStore } from '~/store/favourites-store'
+import type { PokemonItem } from '~/type'
 
 const props = defineProps<{
-  pokemon: PokemonItem;
-}>();
+  pokemon: PokemonItem
+}>()
 
-const favouriteStore = useFavouriteStore();
+const favouriteStore = useFavouriteStore()
 
 function handleFavourite() {
-  favouriteStore.handleFavourite(props.pokemon);
+  favouriteStore.handleFavourite(props.pokemon)
 }
 
 const isFavourite = computed(() =>
-  favouriteStore.favourites.some((fav) => fav.id === props.pokemon.id)
-);
+  favouriteStore.favourites.some(fav => fav.id === props.pokemon.id)
+)
 </script>
 
 <style scoped>

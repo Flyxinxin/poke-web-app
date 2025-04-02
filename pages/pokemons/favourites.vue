@@ -24,18 +24,18 @@
 </template>
 
 <script setup lang="ts">
-import { useFavouriteStore } from "~/store/favourites-store";
+import { useFavouriteStore } from '~/store/favourites-store'
 
-const favouriteStore = useFavouriteStore();
-const router = useRouter();
+const favouriteStore = useFavouriteStore()
+const router = useRouter()
 
-const favourites = computed(() => favouriteStore.favourites);
+const favourites = computed(() => favouriteStore.favourites)
 
 function goToDetail(id: number) {
-  router.push(`/pokemons/${id}`);
+  router.push(`/pokemons/${id}`)
 }
 </script>
 
 <style scoped>
-@import "../../styles/pokemons/favourites.css";
+@import '../../styles/pokemons/favourites.css';
 </style>

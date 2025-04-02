@@ -1,7 +1,7 @@
 // plugins/vue-query.ts
-import { VueQueryPlugin } from "@tanstack/vue-query";
-import { defineNuxtPlugin } from "#app";
+import { VueQueryPlugin } from '@tanstack/vue-query'
+import { defineNuxtPlugin } from '#app'
 
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(VueQueryPlugin);
-});
+export default defineNuxtPlugin(nuxtApp => {
+  nuxtApp.vueApp.use(VueQueryPlugin)
+})

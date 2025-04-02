@@ -15,12 +15,12 @@
   font-size: 1.5rem;
 }
 .pokemon-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    justify-content: center;
-    margin-top: 24px;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
 
 .pokemon-item {
   display: flex;
