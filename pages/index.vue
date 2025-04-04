@@ -15,7 +15,11 @@
         class="pokemon-item"
         @click="goToDetail(pokemon.id)"
       >
-        <img :src="pokemon.image" class="pokemon-image" :alt="pokemon.name" />
+        <img
+          :src="pokemon.imageUrl"
+          class="pokemon-image"
+          :alt="pokemon.name"
+        />
         <span class="pokemon-text">ID: {{ pokemon.id }}</span>
         <span class="pokemon-text">Name: {{ pokemon.name }}</span>
         <FavouriteButton :pokemon="pokemon" />

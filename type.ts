@@ -1,7 +1,7 @@
 export interface PokemonItem {
   id: number
   name: string
-  image: string
+  imageUrl: string
 }
 
 export interface PokemonDetail extends PokemonItem {

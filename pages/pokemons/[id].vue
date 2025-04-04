@@ -3,7 +3,7 @@
     <h1>Pokemon Details</h1>
 
     <div v-if="pokemon" class="pokemon-detail">
-      <img :src="pokemon.image" class="pokemon-image" :alt="pokemon.name" />
+      <img :src="pokemon.imageUrl" class="pokemon-image" :alt="pokemon.name" />
       <h2 class="pokemon-name">{{ pokemon.name }}</h2>
       <span class="pokemon-id">ID: {{ pokemon.id }}</span>
       <span class="pokemon-height">Height: {{ pokemon.height }}</span>

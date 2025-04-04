@@ -14,7 +14,7 @@ export const transformPokemonList = (
     return {
       id,
       name: pokemon.name,
-      image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+      imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
     }
   })
   return {
@@ -32,7 +32,7 @@ export const transformPokemonDetail = (
   return {
     id: pokemon.id,
     name: pokemon.name,
-    image: pokemon.sprites.front_default,
+    imageUrl: pokemon.sprites.front_default,
     weight: pokemon.weight,
     height: pokemon.height,
   }
