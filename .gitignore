@@ -5,6 +5,7 @@
 .nitro
 .cache
 dist
+.yarn/install-state.gz
 
 # Node dependencies
 node_modules
