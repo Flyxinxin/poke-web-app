@@ -1,7 +1,6 @@
 <template>
   <button @click.stop="onFavourite" class="favourite-button">
-    <span v-if="isFavourite">Favourite</span>
-    <span v-else>unFavorite</span>
+    {{ isFavourite ? 'Favourite' : 'unFavorite' }}
   </button>
 </template>
 
