@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Pokemon Familiy</h1>
+    <h1>Pokemon Family</h1>
     <NuxtLink to="/pokemons/favourites" class="favourites-link">
       Go to Favourites
     </NuxtLink>
@@ -9,11 +9,11 @@
       :key="page.page"
       class="pokemon-list-container"
     >
-      <div
+      <NuxtLink
         v-for="pokemon in page.pokemons"
         :key="pokemon.id"
+        :to="`/pokemons/${pokemon.id}`"
         class="pokemon-item"
-        @click="goToDetail(pokemon.id)"
       >
         <img
           :src="pokemon.imageUrl"
@@ -22,8 +22,9 @@
         />
         <span class="pokemon-text">ID: {{ pokemon.id }}</span>
         <span class="pokemon-text">Name: {{ pokemon.name }}</span>
-        <FavouriteButton :pokemon="pokemon" />
-      </div>
+
+        <PokemonsFavouriteButton :pokemon="pokemon" />
+      </NuxtLink>
     </div>
 
     <button
@@ -39,8 +40,6 @@
 
 <script setup lang="ts">
 import { useInfiniteQuery } from '@tanstack/vue-query'
-
-const router = useRouter()
 
 async function getPokemons({ pageParam = 1 }) {
   try {
@@ -61,10 +60,6 @@ const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
       return lastPage.page + 1
     },
   })
-
-function goToDetail(id: number) {
-  router.push(`/pokemons/${id}`)
-}
 </script>
 
 <style scoped>
@@ -92,12 +87,13 @@ function goToDetail(id: number) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  color: inherit;
+  justify-content: center;
   cursor: pointer;
   padding: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .pokemon-image {
@@ -110,6 +106,8 @@ function goToDetail(id: number) {
 .pokemon-text {
   margin-top: 8px;
   font-weight: 600;
+  display: block;
+  text-align: center;
 }
 
 .load-more-button {

@@ -8,11 +8,11 @@
 
     <template v-else>
       <div class="pokemon-list">
-        <div
+        <NuxtLink
           v-for="pokemon in favourites"
           :key="pokemon.id"
           class="pokemon-item"
-          @click="goToDetail(pokemon.id)"
+          :to="`/pokemons/${pokemon.id}`"
         >
           <img
             :src="pokemon.imageUrl"
@@ -21,7 +21,7 @@
           />
           <span class="pokemon-text">ID: {{ pokemon.id }}</span>
           <span class="pokemon-text">Name: {{ pokemon.name }}</span>
-        </div>
+        </NuxtLink>
       </div>
     </template>
   </div>
@@ -31,13 +31,8 @@
 import { useFavouriteStore } from '~/store/favourites-store'
 
 const favouriteStore = useFavouriteStore()
-const router = useRouter()
 
 const favourites = computed(() => favouriteStore.favourites)
-
-function goToDetail(id: number) {
-  router.push(`/pokemons/${id}`)
-}
 </script>
 
 <style scoped>
@@ -70,6 +65,8 @@ function goToDetail(id: number) {
   background-color: #f5f5f5;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .pokemon-image {

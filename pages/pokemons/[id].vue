@@ -8,13 +8,13 @@
       <span class="pokemon-id">ID: {{ pokemon.id }}</span>
       <span class="pokemon-height">Height: {{ pokemon.height }}</span>
       <span class="pokemon-weight">Weight: {{ pokemon.weight }}</span>
-      <FavouriteButton :pokemon="pokemon" />
+      <PokemonsFavouriteButton :pokemon="pokemon" />
     </div>
 
     <div v-if="isLoading" class="loading">Loading...</div>
     <div v-if="error" class="error">Failed to fetch Pokemon details</div>
 
-    <button class="back-button" @click="goBack">Back</button>
+    <NuxtLink to="/" class="back-button">Back</NuxtLink>
   </div>
 </template>
 
@@ -23,7 +23,6 @@ import { useQuery } from '@tanstack/vue-query'
 import type { PokemonDetail } from '~/type'
 
 const route = useRoute()
-const router = useRouter()
 const id = ref(route.params.id as string)
 
 const getPokemonDetail = async () => {
@@ -39,10 +38,6 @@ const {
   queryFn: getPokemonDetail,
   enabled: computed(() => !!id.value),
 })
-
-function goBack() {
-  router.back()
-}
 </script>
 <style scoped>
 .pokemon {
@@ -78,6 +73,7 @@ function goBack() {
 }
 
 .back-button {
+  display: inline-block;
   padding: 10px 16px;
   margin: 6px 0;
   background: #007bff;
@@ -85,5 +81,6 @@ function goBack() {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 </style>
