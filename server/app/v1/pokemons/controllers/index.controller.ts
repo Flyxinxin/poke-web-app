@@ -1,4 +1,4 @@
-import { getPokemonList } from '../services/index.service'
+import { getPokemons } from '../services/index.service'
 import { transformPokemonList } from '../mappers/pokemons.mappers'
 
 // The controller to receives the request
@@ -11,7 +11,7 @@ export default defineEventHandler(async event => {
   const offset = (page - 1) * pageSize
 
   try {
-    const data = await getPokemonList({ limit: pageSize, offset })
+    const data = await getPokemons({ limit: pageSize, offset })
     return transformPokemonList(data, { page, pageSize })
   } catch (error) {
     return { error }

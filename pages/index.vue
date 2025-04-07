@@ -42,7 +42,7 @@ import { useInfiniteQuery } from '@tanstack/vue-query'
 
 const router = useRouter()
 
-async function getPokemonList({ pageParam = 1 }) {
+async function getPokemons({ pageParam = 1 }) {
   try {
     const response = await fetch(`/api/v1/pokemons?page=${pageParam}`)
     return response.json()
@@ -53,11 +53,11 @@ async function getPokemonList({ pageParam = 1 }) {
 
 const { data, fetchNextPage, isFetchingNextPage, hasNextPage } =
   useInfiniteQuery({
-    queryKey: ['getPokemonList'],
-    queryFn: getPokemonList,
+    queryKey: ['getPokemons'],
+    queryFn: getPokemons,
     initialPageParam: 1,
     getNextPageParam: lastPage => {
-      if (lastPage.page >= lastPage.totalPages) return undefined
+      if (lastPage.page >= lastPage.totalPages) return
       return lastPage.page + 1
     },
   })

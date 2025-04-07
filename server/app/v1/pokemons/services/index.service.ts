@@ -1,6 +1,6 @@
 import type { PokemonApiResponse } from '~/type'
 
-export const getPokemonList = async ({
+export const getPokemons = async ({
   limit,
   offset,
 }: {

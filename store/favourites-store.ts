@@ -6,7 +6,7 @@ export const useFavouriteStore = defineStore('favourite', {
     favourites: [] as PokemonItem[],
   }),
   actions: {
-    handleFavourite(pokemon: PokemonItem) {
+    onFavourite(pokemon: PokemonItem) {
       const index = this.favourites.findIndex(fav => fav.id === pokemon.id)
       if (index === -1) {
         this.favourites.push(pokemon)

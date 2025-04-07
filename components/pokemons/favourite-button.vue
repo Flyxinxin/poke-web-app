@@ -1,5 +1,5 @@
 <template>
-  <button @click.stop="handleFavourite" class="favourite-button">
+  <button @click.stop="onFavourite" class="favourite-button">
     <span v-if="isFavourite">Favourite</span>
     <span v-else>unFavorite</span>
   </button>
@@ -15,8 +15,8 @@ const props = defineProps<{
 
 const favouriteStore = useFavouriteStore()
 
-function handleFavourite() {
-  favouriteStore.handleFavourite(props.pokemon)
+function onFavourite() {
+  favouriteStore.onFavourite(props.pokemon)
 }
 
 const isFavourite = computed(() =>
